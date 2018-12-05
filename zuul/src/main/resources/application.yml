@@ -1,0 +1,49 @@
+#网关信息配置，端口，IP，注册服务名称
+server:
+  port: 8762
+  ipAddress: 127.0.0.1
+spring:
+  application:
+    name: zuul-service
+eureka:
+  #服务注册中心的IP和端口
+  server: 
+    ipAddress: 127.0.0.1
+    port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.server.ipAddress}:${eureka.server.port}/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${server.ipAddress}:${server.port}
+
+##timeout config
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  #开启Ribbon的饥饿加载模式
+#  eager-load:
+#    enabled: true
+#    clients: service-base,service-pipeline,service-scm,service-oauth
+#zuul:
+#  routes:
+#    base:
+#      path: /api-base/**
+#      #敏感头信息
+#      sensitiveHeaders:
+#      serviceId: service-base
+#    pipeline:
+#      path: /api-pipeline/**
+#      #敏感头信息
+#      sensitiveHeaders:
+#      serviceId: service-pipeline
+#    scm:
+#      path: /api-scm/**
+#      #敏感头信息
+#      sensitiveHeaders:
+#      serviceId: service-scm
+#    auth:
+#      path: /api-oauth/**
+#      serviceId: service-oauth
+#  #添加代理头
+#  add-proxy-headers: true
