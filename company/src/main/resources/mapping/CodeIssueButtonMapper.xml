@@ -4,7 +4,7 @@
 
 	<select id="getCompanyInfo" resultType="com.audience.company.model.Company">
 		SELECT
-		id,
+		c.id,
 		c.c_name AS NAME,
 		c.c_level AS LEVEL,
 		c.c_number AS number
