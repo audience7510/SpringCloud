@@ -20,4 +20,9 @@ public class CompanyServiceImpl implements CompanyService {
         logger.info(company.toString());
         return company;
     }
+
+    @Override
+    public Company getCompanyInfoById(Integer id) {
+        return companyMapper.getCompanyInfoById(id);
+    }
 }

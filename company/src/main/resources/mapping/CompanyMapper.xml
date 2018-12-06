@@ -11,4 +11,14 @@
 		FROM company c
 	</select>
 
+    <select id="getCompanyInfoById" parameterType="integer" resultType="com.audience.company.model.Company">
+		SELECT
+		c.id,
+		c.c_name AS NAME,
+		c.c_level AS LEVEL,
+		c.c_number AS number
+		FROM company c
+		where c.id = #{id}
+	</select>
+
 </mapper>	

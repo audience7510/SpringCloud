@@ -20,4 +20,9 @@ public class CompanyController {
     public Company getCompanyInfo(){
         return companyService.getCompanyInfo();
     }
+
+    @RequestMapping("/getCompanyInfoById")
+    public Company getCompanyInfoById(Integer id){
+        return companyService.getCompanyInfoById(id);
+    }
 }

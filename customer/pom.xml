@@ -14,11 +14,11 @@
         <!--<version>0.0.1-SNAPSHOT</version>-->
     <!--</parent>-->
     <groupId>com.audience</groupId>
-    <artifactId>company</artifactId>
+    <artifactId>customer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>company</name>
-    <description>company</description>
+    <name>customer</name>
+    <description>customer</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -120,7 +120,6 @@
         </dependency>
 
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
