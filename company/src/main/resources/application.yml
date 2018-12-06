@@ -1,0 +1,71 @@
+#版本管理服务实际IP,端口
+server:
+  port: 8763
+  ipAddress: 127.0.0.1
+#设置静态资源目录
+#web:
+#  webapps-path:
+#安全配置
+#security:
+#  basic:
+#    enabled: false
+  #oauth2配置
+#  oauth2:
+#    resource:
+#      filter-order: 3
+#    client:
+#      clientId: client_1
+#      clientSecret: 123456
+
+eureka:
+  #服务注册中心的IP和端口
+  server: 
+    ipAddress: 127.0.0.1
+    port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.server.ipAddress}:${eureka.server.port}/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${server.ipAddress}:${server.port}
+#logging:
+#  config: classpath:logback-spring.xml
+spring:
+  #日志输出环境
+#  profiles:
+#    active: dev
+#  mvc:
+#    #所有的访问都经过静态资源路径
+#    static-path-pattern: /**
+#  resources:
+#    #配置静态资源路径
+#    static-locations: classpath:/META-INF/resources/,classpath:/resources/,\ classpath:/static/,classpath:/public/,file:${web.webapps-path}
+  application:
+        name: company-service
+  datasource:
+        name: audience
+        url: jdbc:mysql://127.0.0.1:13306/audience?useUnicode=true&characterEncoding=UTF8
+        username: root
+        password: root
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+mybatis: 
+  mapper-locations: classpath*:mapping/**/*.xml
+#FeignClient超时设置
+ribbon:
+    ReadTimeout: 60000
+    ConnectTimeout: 60000
