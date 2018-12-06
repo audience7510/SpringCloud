@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/audience/company")
 public class CompanyController {
     private final static Logger logger= LoggerFactory.getLogger(CompanyController.class);
 
